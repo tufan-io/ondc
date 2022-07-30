@@ -1,0 +1,2542 @@
+schema {
+  query: QueryPlaceholder
+  mutation: Mutation
+}
+
+"""Placeholder object"""
+type QueryPlaceholder {
+  """Placeholder field"""
+  message: String
+}
+
+type Mutation {
+  """
+  A viewer that wraps all operations authenticated via security scheme 'GatewaySubscriberAuth', which is of type 'apiKey'
+  """
+  mutationViewerApiKey(apiKey: String!): MutationViewerApiKey
+
+  """
+  A viewer that wraps all operations authenticated via security scheme 'GatewaySubscriberAuthNew', which is of type 'apiKey'
+  """
+  mutationViewerApiKey2(apiKey: String!): MutationViewerApiKey2
+
+  """
+  A viewer that wraps all operations authenticated via security scheme 'SubscriberAuth', which is of type 'apiKey'
+  """
+  mutationViewerApiKey3(apiKey: String!): MutationViewerApiKey3
+
+  """
+  A viewer that wraps operations for all available authentication mechanisms
+  """
+  mutationViewerAnyAuth(gatewaySubscriberAuth: GatewaySubscriberAuthInput, gatewaySubscriberAuthNew: GatewaySubscriberAuthNewInput, subscriberAuth: SubscriberAuthInput): MutationViewerAnyAuth
+}
+
+"""A viewer for security scheme 'GatewaySubscriberAuth'"""
+type MutationViewerApiKey {
+  """
+  Cancel an order
+  
+  Equivalent to POST /cancel
+  """
+  postCancel(cancelInput: CancelInput): Cancel2
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /cancellation_reasons
+  """
+  postCancellationReasons(cancellationReasonsInput: CancellationReasonsInput): CancellationReasons3
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /confirm
+  """
+  postConfirm(confirmInput: ConfirmInput): Confirm2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /feedback_categories
+  """
+  postFeedbackCategories(feedbackCategoriesInput: FeedbackCategoriesInput): FeedbackCategories3
+
+  """
+  Get a feedback form from the Seller App
+  
+  Equivalent to POST /feedback_form
+  """
+  postFeedbackForm(feedbackForm2Input: FeedbackForm2Input): FeedbackForm3
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /get_cancellation_reasons
+  """
+  postGetCancellationReasons(getCancellationReasonsInput: GetCancellationReasonsInput): GetCancellationReasons2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /get_feedback_categories
+  """
+  postGetFeedbackCategories(getFeedbackCategoriesInput: GetFeedbackCategoriesInput): GetFeedbackCategories2
+
+  """
+  Request a feedback form from the Seller App
+  
+  Equivalent to POST /get_feedback_form
+  """
+  postGetFeedbackForm(getFeedbackFormInput: GetFeedbackFormInput): GetFeedbackForm2
+
+  """
+  Get a list of categories that can be rated by the Seller App
+  
+  Equivalent to POST /get_rating_categories
+  """
+  postGetRatingCategories(getRatingCategoriesInput: GetRatingCategoriesInput): GetRatingCategories2
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /get_return_reasons
+  """
+  postGetReturnReasons(getReturnReasonsInput: GetReturnReasonsInput): GetReturnReasons2
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /init
+  """
+  postInit(initInput: InitInput): Init2
+
+  """
+  Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+  
+  Equivalent to POST /on_cancel
+  """
+  postOnCancel(onCancelInput: OnCancelInput): OnCancel2
+
+  """
+  Send active order object
+  
+  Equivalent to POST /on_confirm
+  """
+  postOnConfirm(onConfirmInput: OnConfirmInput): OnConfirm2
+
+  """
+  Send order object with payment details updated
+  
+  Equivalent to POST /on_init
+  """
+  postOnInit(onInitInput: OnInitInput): OnInit2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /on_rating
+  """
+  postOnRating(onRatingInput: OnRatingInput): OnRating2
+
+  """
+  Send catalog
+  
+  Equivalent to POST /on_search
+  """
+  postOnSearch(onSearchInput: OnSearchInput): OnSearch2
+
+  """
+  Send draft order object with quoted price for selected items
+  
+  Equivalent to POST /on_select
+  """
+  postOnSelect(onSelectInput: OnSelectInput): OnSelect2
+
+  """
+  Fetch the status of a Service
+  
+  Equivalent to POST /on_status
+  """
+  postOnStatus(onStatusInput: OnStatusInput): OnStatus2
+
+  """
+  Contact Support
+  
+  Equivalent to POST /on_support
+  """
+  postOnSupport(onSupportInput: OnSupportInput): OnSupport2
+
+  """
+  Send tracking details of an active order
+  
+  Equivalent to POST /on_track
+  """
+  postOnTrack(onTrackInput: OnTrackInput): OnTrack2
+
+  """
+  Returns updated service with updated runtime object
+  
+  Equivalent to POST /on_update
+  """
+  postOnUpdate(onUpdateInput: OnUpdateInput): OnUpdate2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /rating
+  """
+  postRating(ratingInput: RatingInput): Rating3
+
+  """
+  Get a list of categories that can be rated by the Buyer App
+  
+  Equivalent to POST /rating_categories
+  """
+  postRatingCategories(ratingCategoriesInput: RatingCategoriesInput): RatingCategories3
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /return_reasons
+  """
+  postReturnReasons(returnReasonsInput: ReturnReasonsInput): ReturnReasons3
+
+  """
+  Search for services by intent
+  
+  Equivalent to POST /search
+  """
+  postSearch(searchInput: SearchInput): Search2
+
+  """
+  Select items from the catalog and build your order
+  
+  Equivalent to POST /select
+  """
+  postSelect(selectInput: SelectInput): Select2
+
+  """
+  Fetch the latest order object
+  
+  Equivalent to POST /status
+  """
+  postStatus(status3Input: Status3Input): Status4
+
+  """
+  Contact support
+  
+  Equivalent to POST /support
+  """
+  postSupport(supportInput: SupportInput): Support2
+
+  """
+  Track an active order
+  
+  Equivalent to POST /track
+  """
+  postTrack(trackInput: TrackInput): Track2
+
+  """
+  Update an order
+  
+  Equivalent to POST /update
+  """
+  postUpdate(updateInput: UpdateInput): Update2
+}
+
+type Cancel2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+"""Describes an error object"""
+type Error {
+  """
+  ONDC specific error code. For full list of error codes, refer to docs/drafts/Error Codes.md of this repo
+  """
+  code: String!
+
+  """Human readable message describing the error"""
+  message: String
+
+  """
+  Path to json schema generating the error. Used only during json schema validation errors
+  """
+  path: String
+  type: Type3!
+}
+
+enum Type3 {
+  CONTEXT_ERROR
+  CORE_ERROR
+  DOMAIN_ERROR
+  POLICY_ERROR
+  JSON_SCHEMA_ERROR
+}
+
+type Message2 {
+  """Describes the ACK response"""
+  ack: Ack!
+}
+
+"""Describes the ACK response"""
+type Ack {
+  """
+  Describe the status of the ACK response. If schema validation passes, status is ACK else it is NACK
+  """
+  status: Status2!
+}
+
+enum Status2 {
+  ACK
+  NACK
+}
+
+input CancelInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message6Input!
+}
+
+"""Describes a ONDC message context"""
+input ContextInput {
+  """
+  Defines the ONDC API call. Any actions other than the enumerated actions are not supported by ONDC Protocol
+  """
+  action: Action!
+
+  """
+  Unique id of the Buyer App. By default it is the fully qualified domain name of the Buyer App
+  """
+  bapId: String!
+
+  """
+  URI of the Seller App for accepting callbacks. Must have the same domain name as the bap_id
+  """
+  bapUri: String!
+
+  """
+  Unique id of the Seller App. By default it is the fully qualified domain name of the Seller App
+  """
+  bppId: String
+
+  """URI of the Seller App. Must have the same domain name as the bap_id"""
+  bppUri: String
+
+  """
+  Codification of city code will be using the std code of the city e.g. for Bengaluru, city code is 'std:080'
+  """
+  city: String!
+
+  """Version of ONDC core API specification being used"""
+  coreVersion: String!
+
+  """Country code as per ISO 3166 Alpha-3 code format"""
+  country: String!
+
+  """Codification of domains supported by ONDC"""
+  domain: String!
+
+  """The encryption public key of the sender"""
+  key: String
+
+  """
+  This is a unique value which persists during a request / callback cycle
+  """
+  messageId: String!
+
+  """Time of request generation in RFC3339 format"""
+  timestamp: String!
+
+  """
+  This is a unique value which persists across all API calls from search through confirm
+  """
+  transactionId: String!
+
+  """
+  The duration in ISO8601 format after timestamp for which this message holds valid.
+  """
+  ttl: String
+}
+
+enum Action {
+  SEARCH
+  SELECT
+  INIT
+  CONFIRM
+  UPDATE
+  STATUS
+  TRACK
+  CANCEL
+  RATING
+  SUPPORT
+  ON_SEARCH
+  ON_SELECT
+  ON_INIT
+  ON_CONFIRM
+  ON_UPDATE
+  ON_STATUS
+  ON_TRACK
+  ON_CANCEL
+  ON_RATING
+  ON_SUPPORT
+}
+
+input Message6Input {
+  cancellationReasonId: String
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Hash of order object without id"""
+  orderId: String!
+}
+
+"""Describes the description of a real-world object."""
+input DescriptorInput {
+  _3dRender: String
+  audio: String
+  code: String
+  images: [String]
+  longDesc: String
+  name: String
+  shortDesc: String
+  symbol: String
+}
+
+type CancellationReasons3 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input CancellationReasonsInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+  message: Message14Input
+}
+
+input Message14Input {
+  cancellationReasons: [OptionInput]
+}
+
+"""Describes a selectable option"""
+input OptionInput {
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+  id: String
+}
+
+type Confirm2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input ConfirmInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message3Input!
+}
+
+input Message3Input {
+  """Describes the details of an order"""
+  order: OrderInput!
+}
+
+"""Describes the details of an order"""
+input OrderInput {
+  addOns: [AddOnsListItemInput]
+
+  """Describes a billing event"""
+  billing: BillingInput
+  createdAt: String
+  documents: [DocumentInput]
+
+  """
+  Describes how a single product/service will be rendered/fulfilled to the end customer
+  """
+  fulfillment: FulfillmentInput
+
+  """Hash of order object without id"""
+  id: String
+  items: [Items2ListItemInput]
+  offers: [Offers2ListItemInput]
+
+  """Describes a payment"""
+  payment: PaymentInput
+  provider: Provider2Input
+
+  """Describes a quote"""
+  quote: QuotationInput
+  state: String
+  updatedAt: String
+}
+
+input AddOnsListItemInput {
+  """
+  ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR 
+  """
+  id: String!
+}
+
+"""Describes a billing event"""
+input BillingInput {
+  """Describes an address"""
+  address: AddressInput
+  createdAt: String
+  email: String
+
+  """Personal details of the customer needed for billing."""
+  name: String!
+
+  """Describes an organization"""
+  organization: OrganizationInput
+  phone: String!
+  taxNumber: String
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+  updatedAt: String
+}
+
+"""Describes an address"""
+input AddressInput {
+  """Area code. This can be Pincode, ZIP code or any equivalent"""
+  areaCode: String
+
+  """Name of the building or block"""
+  building: String
+
+  """City name"""
+  city: String
+
+  """Country name"""
+  country: String
+
+  """Door / Shop number of the address"""
+  door: String
+
+  """Name of the locality, apartments"""
+  locality: String
+
+  """Name of address if applicable. Example, shop name"""
+  name: String
+
+  """State name"""
+  state: String
+
+  """Street name or number"""
+  street: String
+
+  """Name or number of the ward if applicable"""
+  ward: String
+}
+
+"""Describes an organization"""
+input OrganizationInput {
+  cred: String
+  name: String
+}
+
+"""
+Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+"""
+input TimeInput {
+  """comma separated values representing days of the week"""
+  days: String
+
+  """Describes duration as per ISO8601 format"""
+  duration: String
+  label: String
+  range: RangeInput
+
+  """Describes a schedule"""
+  schedule: ScheduleInput
+  timestamp: String
+}
+
+input RangeInput {
+  end: String
+  start: String
+}
+
+"""Describes a schedule"""
+input ScheduleInput {
+  """Describes duration as per ISO8601 format"""
+  frequency: String
+  holidays: [String]
+  times: [String]
+}
+
+"""Describes a document which can be sent as a url"""
+input DocumentInput {
+  label: String
+  url: String
+}
+
+"""
+Describes how a single product/service will be rendered/fulfilled to the end customer
+"""
+input FulfillmentInput {
+  """Describes an order executor"""
+  agent: AgentInput
+  contact: ContactInput
+  customer: CustomerInput
+
+  """Details on the end of fulfillment"""
+  end: EndInput
+
+  """Unique reference ID to the fulfillment of an order"""
+  id: String
+
+  """Describes a person."""
+  person: PersonInput
+
+  """Id of the provider"""
+  providerId: String
+
+  """If the entity can be rated or not"""
+  rateable: Boolean
+
+  """Rating value given to the object"""
+  rating: Float
+
+  """Details on the start of fulfillment"""
+  start: StartInput
+
+  """Describes a state"""
+  state: StateInput
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+
+  """Indicates whether the fulfillment allows tracking"""
+  tracking: Boolean
+
+  """This describes the type of fulfillment"""
+  type: String
+
+  """Describes the properties of a vehicle used in a mobility service"""
+  vehicle: VehicleInput
+}
+
+"""Describes an order executor"""
+input AgentInput {
+  cred: String
+  dob: String
+  email: String
+
+  """
+  Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender
+  """
+  gender: String
+
+  """
+  Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```
+  """
+  image: String
+
+  """
+  Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}
+  """
+  name: String
+  phone: String
+
+  """If the entity can be rated or not"""
+  rateable: Boolean
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+}
+
+"""
+The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSON @specifiedBy(url: "http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf")
+
+input ContactInput {
+  email: String
+  phone: String
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+}
+
+input CustomerInput {
+  contact: ContactInput
+
+  """Describes a person."""
+  person: PersonInput
+}
+
+"""Describes a person."""
+input PersonInput {
+  cred: String
+  dob: String
+
+  """
+  Gender of something, typically a Person, but possibly also fictional characters, animals, etc. While Male and Female may be used, text strings are also acceptable for people who do not identify as a binary gender
+  """
+  gender: String
+
+  """
+  Image of an object. <br/><br/> A url based image will look like <br/><br/>```uri:http://path/to/image``` <br/><br/> An image can also be sent as a data string. For example : <br/><br/> ```data:js87y34ilhriuho84r3i4```
+  """
+  image: String
+
+  """
+  Describes the name of a person in format: ./{given_name}/{honorific_prefix}/{first_name}/{middle_name}/{last_name}/{honorific_suffix}
+  """
+  name: String
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+}
+
+"""Details on the end of fulfillment"""
+input EndInput {
+  """Describes an authorization mechanism"""
+  authorization: AuthorizationInput
+  contact: ContactInput
+
+  """Describes the description of a real-world object."""
+  instructions: DescriptorInput
+
+  """Describes the location of a runtime object."""
+  location: LocationInput
+
+  """Describes a person."""
+  person: PersonInput
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""Describes an authorization mechanism"""
+input AuthorizationInput {
+  """Status of the token"""
+  status: String
+
+  """Token used for authorization"""
+  token: String
+
+  """Type of authorization mechanism used"""
+  type: String
+
+  """Timestamp in RFC3339 format from which token is valid"""
+  validFrom: String
+
+  """Timestamp in RFC3339 format until which token is valid"""
+  validTo: String
+}
+
+"""Describes the location of a runtime object."""
+input LocationInput {
+  _3dspace: String
+
+  """Describes an address"""
+  address: AddressInput
+
+  """Describes a circular area on the map"""
+  circle: CircleInput
+
+  """Describes a city"""
+  city: CityInput
+
+  """Describes a country."""
+  country: CountryInput
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Describes a gps coordinate"""
+  gps: String
+  id: String
+  polygon: String
+  stationCode: String
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""Describes a circular area on the map"""
+input CircleInput {
+  """Describes a gps coordinate"""
+  gps: String!
+
+  """An object representing a scalar quantity."""
+  radius: ScalarInput!
+}
+
+"""An object representing a scalar quantity."""
+input ScalarInput {
+  computedValue: Float
+  estimatedValue: Float
+  range: Range2Input
+  type: Type
+  unit: String!
+  value: Float!
+}
+
+input Range2Input {
+  max: Float
+  min: Float
+}
+
+enum Type {
+  CONSTANT
+  VARIABLE
+}
+
+"""Describes a city"""
+input CityInput {
+  """
+  Codification of city code will be using the std code of the city e.g. for Bengaluru, city code is 'std:080'
+  """
+  code: String
+
+  """Name of the city"""
+  name: String
+}
+
+"""Describes a country."""
+input CountryInput {
+  """Country code as per ISO 3166 Alpha-3 code format"""
+  code: String
+
+  """Name of the country"""
+  name: String
+}
+
+"""Details on the start of fulfillment"""
+input StartInput {
+  """Describes an authorization mechanism"""
+  authorization: AuthorizationInput
+  contact: ContactInput
+
+  """Describes the description of a real-world object."""
+  instructions: DescriptorInput
+
+  """Describes the location of a runtime object."""
+  location: LocationInput
+
+  """Describes a person."""
+  person: PersonInput
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""Describes a state"""
+input StateInput {
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+  updatedAt: String
+
+  """ID of entity which changed the state"""
+  updatedBy: String
+}
+
+"""Describes the properties of a vehicle used in a mobility service"""
+input VehicleInput {
+  capacity: Int
+  category: String
+  color: String
+  energyType: String
+  make: String
+  model: String
+  registration: String
+  size: String
+  variant: String
+}
+
+input Items2ListItemInput {
+  """
+  This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+  """
+  id: String!
+  quantity: SelectedInput
+}
+
+input SelectedInput {
+  count: Int
+
+  """An object representing a scalar quantity."""
+  measure: ScalarInput
+}
+
+input Offers2ListItemInput {
+  id: String!
+}
+
+"""Describes a payment"""
+input PaymentInput {
+  collectedBy: CollectedBy
+  params: JSON
+  status: Status
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+  tlMethod: TlMethod
+  type: Type2
+
+  """
+  A payment uri to be called by the Buyer App. If empty, then the payment is to be done offline. The details of payment should be present in the params object. If ```tl_method``` = http/get, then the payment details will be sent as url params. Two url param values, ```$transaction_id``` and ```$amount``` are mandatory. And example url would be : https://www.example.com/pay?txid=$transaction_id&amount=$amount&vpa=upiid&payee=shopez&billno=1234
+  """
+  uri: String
+}
+
+enum CollectedBy {
+  BAP
+  BPP
+}
+
+enum Status {
+  PAID
+  NOT_PAID
+}
+
+enum TlMethod {
+  HTTP_GET
+  HTTP_POST
+  PAYTO
+  UPI
+}
+
+enum Type2 {
+  ON_ORDER
+  PRE_FULFILLMENT
+  ON_FULFILLMENT
+  POST_FULFILLMENT
+}
+
+input Provider2Input {
+  """Id of the provider"""
+  id: String
+  locations: [Locations2ListItemInput]
+}
+
+input Locations2ListItemInput {
+  id: String!
+}
+
+"""Describes a quote"""
+input QuotationInput {
+  breakup: [BreakupListItemInput]
+
+  """Describes the price of an item. Allows for domain extension."""
+  price: PriceInput
+
+  """Describes duration as per ISO8601 format"""
+  ttl: String
+}
+
+input BreakupListItemInput {
+  """Describes the price of an item. Allows for domain extension."""
+  price: PriceInput
+  title: String
+}
+
+"""Describes the price of an item. Allows for domain extension."""
+input PriceInput {
+  """Describes a decimal value"""
+  computedValue: String
+
+  """ISO 4217 alphabetic currency code e.g. 'INR'"""
+  currency: String
+
+  """Describes a decimal value"""
+  estimatedValue: String
+
+  """Describes a decimal value"""
+  listedValue: String
+
+  """Describes a decimal value"""
+  maximumValue: String
+
+  """Describes a decimal value"""
+  minimumValue: String
+
+  """Describes a decimal value"""
+  offeredValue: String
+
+  """Describes a decimal value"""
+  value: String
+}
+
+type FeedbackCategories3 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input FeedbackCategoriesInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+  feedbackCategories: [String]
+}
+
+type FeedbackForm3 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input FeedbackForm2Input {
+  """Describes a ONDC message context"""
+  context: ContextInput
+
+  """Feedback for a service"""
+  message: FeedbackInput
+}
+
+"""Feedback for a service"""
+input FeedbackInput {
+  """
+  Describes a feedback form that a Seller App can send to get feedback from the Buyer App
+  """
+  feedbackForm: [FeedbackFormElementInput]
+
+  """Describes how a feedback URL will be sent by the Seller App"""
+  feedbackUrl: FeedbackUrlInput
+}
+
+"""
+An element in the feedback form. It can be question or an answer to the question.
+"""
+input FeedbackFormElementInput {
+  """
+  Specifies an answer option to which the question will be in the FeedbackFormElement specified in parent_id
+  """
+  answer: String
+
+  """Specifies how the answer option should be rendered."""
+  answerType: AnswerType
+  id: String
+  parentId: String
+
+  """
+  Specifies the question to which the answer options will be contained in the child FeedbackFormElements
+  """
+  question: String
+}
+
+enum AnswerType {
+  RADIO
+  CHECKBOX
+  TEXT
+}
+
+"""Describes how a feedback URL will be sent by the Seller App"""
+input FeedbackUrlInput {
+  params: JSON
+  tlMethod: TlMethod2
+
+  """feedback URL sent by the Seller App"""
+  url: String
+}
+
+enum TlMethod2 {
+  HTTP_GET
+  HTTP_POST
+}
+
+type GetCancellationReasons2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input GetCancellationReasonsInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+}
+
+type GetFeedbackCategories2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input GetFeedbackCategoriesInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+}
+
+type GetFeedbackForm2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input GetFeedbackFormInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+  message: Message15Input
+}
+
+input Message15Input {
+  """Category of the object being rated"""
+  ratingCategory: String
+
+  """Rating value given to the object"""
+  ratingValue: Float
+}
+
+type GetRatingCategories2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input GetRatingCategoriesInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+}
+
+type GetReturnReasons2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input GetReturnReasonsInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+}
+
+type Init2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input InitInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message3Input!
+}
+
+type OnCancel2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnCancelInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message3Input
+}
+
+"""Describes an error object"""
+input ErrorInput {
+  """
+  ONDC specific error code. For full list of error codes, refer to docs/drafts/Error Codes.md of this repo
+  """
+  code: String!
+
+  """Human readable message describing the error"""
+  message: String
+
+  """
+  Path to json schema generating the error. Used only during json schema validation errors
+  """
+  path: String
+  type: Type3!
+}
+
+type OnConfirm2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnConfirmInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message3Input
+}
+
+type OnInit2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnInitInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message11Input
+}
+
+input Message11Input {
+  order: Order3Input!
+}
+
+input Order3Input {
+  addOns: [AddOns3ListItemInput]
+
+  """Describes a billing event"""
+  billing: BillingInput
+
+  """
+  Describes how a single product/service will be rendered/fulfilled to the end customer
+  """
+  fulfillment: FulfillmentInput
+  items: [Items4ListItemInput]
+  offers: [Offers3ListItemInput]
+
+  """Describes a payment"""
+  payment: PaymentInput
+  provider: Provider3Input
+  providerLocation: ProviderLocationInput
+
+  """Describes a quote"""
+  quote: QuotationInput
+}
+
+input AddOns3ListItemInput {
+  """
+  ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR 
+  """
+  id: String
+}
+
+input Items4ListItemInput {
+  """
+  This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+  """
+  id: String
+  quantity: SelectedInput
+}
+
+input Offers3ListItemInput {
+  id: String
+}
+
+input Provider3Input {
+  """Id of the provider"""
+  id: String
+}
+
+input ProviderLocationInput {
+  id: String
+}
+
+type OnRating2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnRatingInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: RatingAckInput
+}
+
+input RatingAckInput {
+  """If feedback has been recorded or not"""
+  feedbackAck: Boolean
+
+  """If rating has been recorded or not"""
+  ratingAck: Boolean
+}
+
+type OnSearch2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2
+}
+
+input OnSearchInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message9Input
+}
+
+input Message9Input {
+  """Describes a Seller App catalog"""
+  catalog: CatalogInput!
+}
+
+"""Describes a Seller App catalog"""
+input CatalogInput {
+  bppCategories: [CategoryInput]
+
+  """Describes the description of a real-world object."""
+  bppDescriptor: DescriptorInput
+  bppFulfillments: [FulfillmentInput]
+  bppOffers: [OfferInput]
+  bppPayments: [PaymentInput]
+  bppProviders: [ProviderInput]
+
+  """Time after which catalog has to be refreshed"""
+  exp: String
+}
+
+"""Describes a category"""
+input CategoryInput {
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Unique id of the category"""
+  id: String
+
+  """Unique id of the category"""
+  parentCategoryId: String
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""Describes an offer"""
+input OfferInput {
+  categoryIds: [String]
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+  id: String
+  itemIds: [String]
+  locationIds: [String]
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""
+Describes a service provider. This can be a restaurant, a hospital, a Store etc
+"""
+input ProviderInput {
+  categories: [CategoryInput]
+
+  """Category Id of the provider"""
+  categoryId: String
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Time after which catalog has to be refreshed"""
+  exp: String
+  fulfillments: [FulfillmentInput]
+
+  """Id of the provider"""
+  id: String
+  items: [ItemInput]
+  locations: [LocationsListItemInput]
+  offers: [OfferInput]
+  payments: [PaymentInput]
+
+  """If the entity can be rated or not"""
+  rateable: Boolean
+
+  """Rating value given to the object"""
+  rating: Float
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""
+Describes a product or a service offered to the end consumer by the provider.
+"""
+input ItemInput {
+  """Unique id of the category"""
+  categoryId: String
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Unique reference ID to the fulfillment of an order"""
+  fulfillmentId: String
+
+  """
+  This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+  """
+  id: String
+  locationId: String
+  matched: Boolean
+
+  """
+  This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+  """
+  parentItemId: String
+
+  """Describes the price of an item. Allows for domain extension."""
+  price: PriceInput
+
+  """If the entity can be rated or not"""
+  rateable: Boolean
+
+  """Rating value given to the object"""
+  rating: Float
+  recommended: Boolean
+  related: Boolean
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+input LocationsListItemInput {
+  _3dspace: String
+
+  """Describes an address"""
+  address: AddressInput
+
+  """Describes a circular area on the map"""
+  circle: CircleInput
+
+  """Describes a city"""
+  city: CityInput
+
+  """Describes a country."""
+  country: CountryInput
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Describes a gps coordinate"""
+  gps: String
+  id: String
+  polygon: String
+
+  """If the entity can be rated or not"""
+  rateable: Boolean
+  stationCode: String
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+type OnSelect2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnSelectInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message10Input
+}
+
+input Message10Input {
+  order: Order2Input!
+}
+
+input Order2Input {
+  addOns: [AddOnInput]
+  items: [Items3ListItemInput]
+  offers: [OfferInput]
+
+  """
+  Describes a service provider. This can be a restaurant, a hospital, a Store etc
+  """
+  provider: ProviderInput
+
+  """Describes the location of a runtime object."""
+  providerLocation: LocationInput
+
+  """Describes a quote"""
+  quote: QuotationInput
+}
+
+"""Describes an add-on"""
+input AddOnInput {
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """
+  ID of the add-on. This follows the syntax {item.id}/add-on/{add-on unique id} for item specific add-on OR 
+  """
+  id: String
+
+  """Describes the price of an item. Allows for domain extension."""
+  price: PriceInput
+}
+
+input Items3ListItemInput {
+  """Unique id of the category"""
+  categoryId: String
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """Unique reference ID to the fulfillment of an order"""
+  fulfillmentId: String
+
+  """
+  This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+  """
+  id: String
+  locationId: String
+  matched: Boolean
+
+  """
+  This is the most unique identifier of a service item. An example of an Item ID could be the SKU of a product.
+  """
+  parentItemId: String
+
+  """Describes the price of an item. Allows for domain extension."""
+  price: PriceInput
+
+  """Describes count or amount of an item"""
+  quantity: ItemQuantityInput
+
+  """If the entity can be rated or not"""
+  rateable: Boolean
+
+  """Rating value given to the object"""
+  rating: Float
+  recommended: Boolean
+  related: Boolean
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+
+  """
+  Describes time in its various forms. It can be a single point in time; duration; or a structured timetable of operations
+  """
+  time: TimeInput
+}
+
+"""Describes count or amount of an item"""
+input ItemQuantityInput {
+  allocated: AllocatedInput
+  available: AvailableInput
+  maximum: MaximumInput
+  minimum: MinimumInput
+  selected: SelectedInput
+}
+
+input AllocatedInput {
+  count: Int
+
+  """An object representing a scalar quantity."""
+  measure: ScalarInput
+}
+
+input AvailableInput {
+  count: Int
+
+  """An object representing a scalar quantity."""
+  measure: ScalarInput
+}
+
+input MaximumInput {
+  count: Int
+
+  """An object representing a scalar quantity."""
+  measure: ScalarInput
+}
+
+input MinimumInput {
+  count: Int
+
+  """An object representing a scalar quantity."""
+  measure: ScalarInput
+}
+
+type OnStatus2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnStatusInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message3Input
+}
+
+type OnSupport2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnSupportInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message13Input
+}
+
+input Message13Input {
+  email: String
+  phone: String
+  uri: String
+}
+
+type OnTrack2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnTrackInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message12Input
+}
+
+input Message12Input {
+  """Describes the tracking info of an object"""
+  tracking: TrackingInput!
+}
+
+"""Describes the tracking info of an object"""
+input TrackingInput {
+  status: Status5
+  url: String
+}
+
+enum Status5 {
+  ACTIVE
+  INACTIVE
+}
+
+type OnUpdate2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input OnUpdateInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes an error object"""
+  error: ErrorInput
+  message: Message3Input
+}
+
+type Rating3 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input RatingInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+
+  """Describes the rating of a person or an object."""
+  message: Rating2Input!
+}
+
+"""Describes the rating of a person or an object."""
+input Rating2Input {
+  """
+  Describes a feedback form that a Seller App can send to get feedback from the Buyer App
+  """
+  feedbackForm: [FeedbackFormElementInput]
+
+  """
+  This value will be placed in the the $feedback_id url param in case of http/get and in the requestBody http/post requests
+  """
+  feedbackId: String
+
+  """Id of the object being rated"""
+  id: String
+
+  """Category of the object being rated"""
+  ratingCategory: String
+
+  """Rating value given to the object"""
+  value: Float
+}
+
+type RatingCategories3 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input RatingCategoriesInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+  ratingCategories: [String]
+}
+
+type ReturnReasons3 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input ReturnReasonsInput {
+  """Describes a ONDC message context"""
+  context: ContextInput
+  returnReasons: [OptionInput]
+}
+
+type Search2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input SearchInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: MessageInput!
+}
+
+input MessageInput {
+  """Intent of a user. Used for searching for services"""
+  intent: IntentInput
+}
+
+"""Intent of a user. Used for searching for services"""
+input IntentInput {
+  """Describes a category"""
+  category: CategoryInput
+
+  """Describes the description of a real-world object."""
+  descriptor: DescriptorInput
+
+  """
+  Describes how a single product/service will be rendered/fulfilled to the end customer
+  """
+  fulfillment: FulfillmentInput
+
+  """
+  Describes a product or a service offered to the end consumer by the provider.
+  """
+  item: ItemInput
+
+  """Describes an offer"""
+  offer: OfferInput
+
+  """Describes a payment"""
+  payment: PaymentInput
+
+  """
+  Describes a service provider. This can be a restaurant, a hospital, a Store etc
+  """
+  provider: ProviderInput
+
+  """
+  Describes a tag. This is a simple key-value store which is used to contain extended metadata
+  """
+  tags: JSON
+}
+
+type Select2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input SelectInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message3Input!
+}
+
+type Status4 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input Status3Input {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message4Input!
+}
+
+input Message4Input {
+  """Hash of order object without id"""
+  orderId: String!
+}
+
+type Support2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input SupportInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message8Input!
+}
+
+input Message8Input {
+  """ID of the element for which support is needed"""
+  refId: String
+}
+
+type Track2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input TrackInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message5Input!
+}
+
+input Message5Input {
+  callbackUrl: String
+
+  """Hash of order object without id"""
+  orderId: String!
+}
+
+type Update2 {
+  """Describes an error object"""
+  error: Error
+  message: Message2!
+}
+
+input UpdateInput {
+  """Describes a ONDC message context"""
+  context: ContextInput!
+  message: Message7Input!
+}
+
+input Message7Input {
+  """Describes the details of an order"""
+  order: OrderInput!
+
+  """
+  Comma separated values of order objects being updated. For example: ```"update_target":"item,billing,fulfillment"```
+  """
+  updateTarget: String!
+}
+
+"""A viewer for security scheme 'GatewaySubscriberAuthNew'"""
+type MutationViewerApiKey2 {
+  """
+  Cancel an order
+  
+  Equivalent to POST /cancel
+  """
+  postCancel(cancelInput: CancelInput): Cancel2
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /cancellation_reasons
+  """
+  postCancellationReasons(cancellationReasonsInput: CancellationReasonsInput): CancellationReasons3
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /confirm
+  """
+  postConfirm(confirmInput: ConfirmInput): Confirm2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /feedback_categories
+  """
+  postFeedbackCategories(feedbackCategoriesInput: FeedbackCategoriesInput): FeedbackCategories3
+
+  """
+  Get a feedback form from the Seller App
+  
+  Equivalent to POST /feedback_form
+  """
+  postFeedbackForm(feedbackForm2Input: FeedbackForm2Input): FeedbackForm3
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /get_cancellation_reasons
+  """
+  postGetCancellationReasons(getCancellationReasonsInput: GetCancellationReasonsInput): GetCancellationReasons2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /get_feedback_categories
+  """
+  postGetFeedbackCategories(getFeedbackCategoriesInput: GetFeedbackCategoriesInput): GetFeedbackCategories2
+
+  """
+  Request a feedback form from the Seller App
+  
+  Equivalent to POST /get_feedback_form
+  """
+  postGetFeedbackForm(getFeedbackFormInput: GetFeedbackFormInput): GetFeedbackForm2
+
+  """
+  Get a list of categories that can be rated by the Seller App
+  
+  Equivalent to POST /get_rating_categories
+  """
+  postGetRatingCategories(getRatingCategoriesInput: GetRatingCategoriesInput): GetRatingCategories2
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /get_return_reasons
+  """
+  postGetReturnReasons(getReturnReasonsInput: GetReturnReasonsInput): GetReturnReasons2
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /init
+  """
+  postInit(initInput: InitInput): Init2
+
+  """
+  Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+  
+  Equivalent to POST /on_cancel
+  """
+  postOnCancel(onCancelInput: OnCancelInput): OnCancel2
+
+  """
+  Send active order object
+  
+  Equivalent to POST /on_confirm
+  """
+  postOnConfirm(onConfirmInput: OnConfirmInput): OnConfirm2
+
+  """
+  Send order object with payment details updated
+  
+  Equivalent to POST /on_init
+  """
+  postOnInit(onInitInput: OnInitInput): OnInit2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /on_rating
+  """
+  postOnRating(onRatingInput: OnRatingInput): OnRating2
+
+  """
+  Send catalog
+  
+  Equivalent to POST /on_search
+  """
+  postOnSearch(onSearchInput: OnSearchInput): OnSearch2
+
+  """
+  Send draft order object with quoted price for selected items
+  
+  Equivalent to POST /on_select
+  """
+  postOnSelect(onSelectInput: OnSelectInput): OnSelect2
+
+  """
+  Fetch the status of a Service
+  
+  Equivalent to POST /on_status
+  """
+  postOnStatus(onStatusInput: OnStatusInput): OnStatus2
+
+  """
+  Contact Support
+  
+  Equivalent to POST /on_support
+  """
+  postOnSupport(onSupportInput: OnSupportInput): OnSupport2
+
+  """
+  Send tracking details of an active order
+  
+  Equivalent to POST /on_track
+  """
+  postOnTrack(onTrackInput: OnTrackInput): OnTrack2
+
+  """
+  Returns updated service with updated runtime object
+  
+  Equivalent to POST /on_update
+  """
+  postOnUpdate(onUpdateInput: OnUpdateInput): OnUpdate2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /rating
+  """
+  postRating(ratingInput: RatingInput): Rating3
+
+  """
+  Get a list of categories that can be rated by the Buyer App
+  
+  Equivalent to POST /rating_categories
+  """
+  postRatingCategories(ratingCategoriesInput: RatingCategoriesInput): RatingCategories3
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /return_reasons
+  """
+  postReturnReasons(returnReasonsInput: ReturnReasonsInput): ReturnReasons3
+
+  """
+  Search for services by intent
+  
+  Equivalent to POST /search
+  """
+  postSearch(searchInput: SearchInput): Search2
+
+  """
+  Select items from the catalog and build your order
+  
+  Equivalent to POST /select
+  """
+  postSelect(selectInput: SelectInput): Select2
+
+  """
+  Fetch the latest order object
+  
+  Equivalent to POST /status
+  """
+  postStatus(status3Input: Status3Input): Status4
+
+  """
+  Contact support
+  
+  Equivalent to POST /support
+  """
+  postSupport(supportInput: SupportInput): Support2
+
+  """
+  Track an active order
+  
+  Equivalent to POST /track
+  """
+  postTrack(trackInput: TrackInput): Track2
+
+  """
+  Update an order
+  
+  Equivalent to POST /update
+  """
+  postUpdate(updateInput: UpdateInput): Update2
+}
+
+"""A viewer for security scheme 'SubscriberAuth'"""
+type MutationViewerApiKey3 {
+  """
+  Cancel an order
+  
+  Equivalent to POST /cancel
+  """
+  postCancel(cancelInput: CancelInput): Cancel2
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /cancellation_reasons
+  """
+  postCancellationReasons(cancellationReasonsInput: CancellationReasonsInput): CancellationReasons3
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /confirm
+  """
+  postConfirm(confirmInput: ConfirmInput): Confirm2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /feedback_categories
+  """
+  postFeedbackCategories(feedbackCategoriesInput: FeedbackCategoriesInput): FeedbackCategories3
+
+  """
+  Get a feedback form from the Seller App
+  
+  Equivalent to POST /feedback_form
+  """
+  postFeedbackForm(feedbackForm2Input: FeedbackForm2Input): FeedbackForm3
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /get_cancellation_reasons
+  """
+  postGetCancellationReasons(getCancellationReasonsInput: GetCancellationReasonsInput): GetCancellationReasons2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /get_feedback_categories
+  """
+  postGetFeedbackCategories(getFeedbackCategoriesInput: GetFeedbackCategoriesInput): GetFeedbackCategories2
+
+  """
+  Request a feedback form from the Seller App
+  
+  Equivalent to POST /get_feedback_form
+  """
+  postGetFeedbackForm(getFeedbackFormInput: GetFeedbackFormInput): GetFeedbackForm2
+
+  """
+  Get a list of categories that can be rated by the Seller App
+  
+  Equivalent to POST /get_rating_categories
+  """
+  postGetRatingCategories(getRatingCategoriesInput: GetRatingCategoriesInput): GetRatingCategories2
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /get_return_reasons
+  """
+  postGetReturnReasons(getReturnReasonsInput: GetReturnReasonsInput): GetReturnReasons2
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /init
+  """
+  postInit(initInput: InitInput): Init2
+
+  """
+  Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+  
+  Equivalent to POST /on_cancel
+  """
+  postOnCancel(onCancelInput: OnCancelInput): OnCancel2
+
+  """
+  Send active order object
+  
+  Equivalent to POST /on_confirm
+  """
+  postOnConfirm(onConfirmInput: OnConfirmInput): OnConfirm2
+
+  """
+  Send order object with payment details updated
+  
+  Equivalent to POST /on_init
+  """
+  postOnInit(onInitInput: OnInitInput): OnInit2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /on_rating
+  """
+  postOnRating(onRatingInput: OnRatingInput): OnRating2
+
+  """
+  Send catalog
+  
+  Equivalent to POST /on_search
+  """
+  postOnSearch(onSearchInput: OnSearchInput): OnSearch2
+
+  """
+  Send draft order object with quoted price for selected items
+  
+  Equivalent to POST /on_select
+  """
+  postOnSelect(onSelectInput: OnSelectInput): OnSelect2
+
+  """
+  Fetch the status of a Service
+  
+  Equivalent to POST /on_status
+  """
+  postOnStatus(onStatusInput: OnStatusInput): OnStatus2
+
+  """
+  Contact Support
+  
+  Equivalent to POST /on_support
+  """
+  postOnSupport(onSupportInput: OnSupportInput): OnSupport2
+
+  """
+  Send tracking details of an active order
+  
+  Equivalent to POST /on_track
+  """
+  postOnTrack(onTrackInput: OnTrackInput): OnTrack2
+
+  """
+  Returns updated service with updated runtime object
+  
+  Equivalent to POST /on_update
+  """
+  postOnUpdate(onUpdateInput: OnUpdateInput): OnUpdate2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /rating
+  """
+  postRating(ratingInput: RatingInput): Rating3
+
+  """
+  Get a list of categories that can be rated by the Buyer App
+  
+  Equivalent to POST /rating_categories
+  """
+  postRatingCategories(ratingCategoriesInput: RatingCategoriesInput): RatingCategories3
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /return_reasons
+  """
+  postReturnReasons(returnReasonsInput: ReturnReasonsInput): ReturnReasons3
+
+  """
+  Search for services by intent
+  
+  Equivalent to POST /search
+  """
+  postSearch(searchInput: SearchInput): Search2
+
+  """
+  Select items from the catalog and build your order
+  
+  Equivalent to POST /select
+  """
+  postSelect(selectInput: SelectInput): Select2
+
+  """
+  Fetch the latest order object
+  
+  Equivalent to POST /status
+  """
+  postStatus(status3Input: Status3Input): Status4
+
+  """
+  Contact support
+  
+  Equivalent to POST /support
+  """
+  postSupport(supportInput: SupportInput): Support2
+
+  """
+  Track an active order
+  
+  Equivalent to POST /track
+  """
+  postTrack(trackInput: TrackInput): Track2
+
+  """
+  Update an order
+  
+  Equivalent to POST /update
+  """
+  postUpdate(updateInput: UpdateInput): Update2
+}
+
+"""Warning: Not every request will work with this viewer type"""
+type MutationViewerAnyAuth {
+  """
+  Cancel an order
+  
+  Equivalent to POST /cancel
+  """
+  postCancel(cancelInput: CancelInput): Cancel2
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /cancellation_reasons
+  """
+  postCancellationReasons(cancellationReasonsInput: CancellationReasonsInput): CancellationReasons3
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /confirm
+  """
+  postConfirm(confirmInput: ConfirmInput): Confirm2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /feedback_categories
+  """
+  postFeedbackCategories(feedbackCategoriesInput: FeedbackCategoriesInput): FeedbackCategories3
+
+  """
+  Get a feedback form from the Seller App
+  
+  Equivalent to POST /feedback_form
+  """
+  postFeedbackForm(feedbackForm2Input: FeedbackForm2Input): FeedbackForm3
+
+  """
+  Get cancellation reasons from the Seller App
+  
+  Equivalent to POST /get_cancellation_reasons
+  """
+  postGetCancellationReasons(getCancellationReasonsInput: GetCancellationReasonsInput): GetCancellationReasons2
+
+  """
+  Get a list of categories for which feedback can be given by the Buyer App
+  
+  Equivalent to POST /get_feedback_categories
+  """
+  postGetFeedbackCategories(getFeedbackCategoriesInput: GetFeedbackCategoriesInput): GetFeedbackCategories2
+
+  """
+  Request a feedback form from the Seller App
+  
+  Equivalent to POST /get_feedback_form
+  """
+  postGetFeedbackForm(getFeedbackFormInput: GetFeedbackFormInput): GetFeedbackForm2
+
+  """
+  Get a list of categories that can be rated by the Seller App
+  
+  Equivalent to POST /get_rating_categories
+  """
+  postGetRatingCategories(getRatingCategoriesInput: GetRatingCategoriesInput): GetRatingCategories2
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /get_return_reasons
+  """
+  postGetReturnReasons(getReturnReasonsInput: GetReturnReasonsInput): GetReturnReasons2
+
+  """
+  Initialize an order by providing billing and/or shipping details
+  
+  Equivalent to POST /init
+  """
+  postInit(initInput: InitInput): Init2
+
+  """
+  Send cancellation request_id with reasons list in case of cancellation request. Else send cancelled order object
+  
+  Equivalent to POST /on_cancel
+  """
+  postOnCancel(onCancelInput: OnCancelInput): OnCancel2
+
+  """
+  Send active order object
+  
+  Equivalent to POST /on_confirm
+  """
+  postOnConfirm(onConfirmInput: OnConfirmInput): OnConfirm2
+
+  """
+  Send order object with payment details updated
+  
+  Equivalent to POST /on_init
+  """
+  postOnInit(onInitInput: OnInitInput): OnInit2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /on_rating
+  """
+  postOnRating(onRatingInput: OnRatingInput): OnRating2
+
+  """
+  Send catalog
+  
+  Equivalent to POST /on_search
+  """
+  postOnSearch(onSearchInput: OnSearchInput): OnSearch2
+
+  """
+  Send draft order object with quoted price for selected items
+  
+  Equivalent to POST /on_select
+  """
+  postOnSelect(onSelectInput: OnSelectInput): OnSelect2
+
+  """
+  Fetch the status of a Service
+  
+  Equivalent to POST /on_status
+  """
+  postOnStatus(onStatusInput: OnStatusInput): OnStatus2
+
+  """
+  Contact Support
+  
+  Equivalent to POST /on_support
+  """
+  postOnSupport(onSupportInput: OnSupportInput): OnSupport2
+
+  """
+  Send tracking details of an active order
+  
+  Equivalent to POST /on_track
+  """
+  postOnTrack(onTrackInput: OnTrackInput): OnTrack2
+
+  """
+  Returns updated service with updated runtime object
+  
+  Equivalent to POST /on_update
+  """
+  postOnUpdate(onUpdateInput: OnUpdateInput): OnUpdate2
+
+  """
+  Provide feedback on a service
+  
+  Equivalent to POST /rating
+  """
+  postRating(ratingInput: RatingInput): Rating3
+
+  """
+  Get a list of categories that can be rated by the Buyer App
+  
+  Equivalent to POST /rating_categories
+  """
+  postRatingCategories(ratingCategoriesInput: RatingCategoriesInput): RatingCategories3
+
+  """
+  Get return reasons from the Seller App
+  
+  Equivalent to POST /return_reasons
+  """
+  postReturnReasons(returnReasonsInput: ReturnReasonsInput): ReturnReasons3
+
+  """
+  Search for services by intent
+  
+  Equivalent to POST /search
+  """
+  postSearch(searchInput: SearchInput): Search2
+
+  """
+  Select items from the catalog and build your order
+  
+  Equivalent to POST /select
+  """
+  postSelect(selectInput: SelectInput): Select2
+
+  """
+  Fetch the latest order object
+  
+  Equivalent to POST /status
+  """
+  postStatus(status3Input: Status3Input): Status4
+
+  """
+  Contact support
+  
+  Equivalent to POST /support
+  """
+  postSupport(supportInput: SupportInput): Support2
+
+  """
+  Track an active order
+  
+  Equivalent to POST /track
+  """
+  postTrack(trackInput: TrackInput): Track2
+
+  """
+  Update an order
+  
+  Equivalent to POST /update
+  """
+  postUpdate(updateInput: UpdateInput): Update2
+}
+
+"""API key credentials for the security protocol 'GatewaySubscriberAuth'"""
+input GatewaySubscriberAuthInput {
+  apiKey: String
+}
+
+"""
+API key credentials for the security protocol 'GatewaySubscriberAuthNew'
+"""
+input GatewaySubscriberAuthNewInput {
+  apiKey: String
+}
+
+"""API key credentials for the security protocol 'SubscriberAuth'"""
+input SubscriberAuthInput {
+  apiKey: String
+}
+
